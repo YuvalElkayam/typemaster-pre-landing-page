@@ -1,2 +1,363 @@
+:root {
+	--base-margin: 1.5rem;
+	--light-blue: #7b8bad;
+	--dark-orange: #f16718;
+	--very-dark-blue: #162542;
+	--very-light-grey: #e8eff2;
+}
+
+html,
 body {
+	width: 100vw;
+	overflow-x: hidden;
+}
+
+body {
+	margin: 0;
+	font-family: 'Barlow', sans-serif;
+}
+
+h1,
+h2,
+h3 {
+	font-weight: 900;
+	color: var(--very-dark-blue);
+}
+
+p {
+	color: var(--light-blue);
+}
+
+.square {
+	display: none;
+}
+
+.img {
+	height: auto;
+	max-width: 100%;
+}
+
+.nav {
+	display: flex;
+	margin: var(--base-margin);
+	justify-content: space-between;
+	align-items: center;
+}
+
+.nav-btn {
+	color: var(--very-dark-blue);
+}
+
+.nav-btn:hover {
+	color: #fff;
+	background-color: var(--very-dark-blue);
+}
+
+.btn {
+	border: none;
+	border-radius: 8px;
+	padding: .95rem;
+	font-weight: 700;
+	background-color: var(--very-light-grey);
+	text-transform: uppercase;
+}
+
+.intro {
+	margin: var(--base-margin);
+}
+
+.intro-title {
+	font-size: 3rem;
+	text-transform: uppercase;
+}
+
+.intro-text {
+	margin: 0;
+	margin-bottom: 2.01rem;
+}
+
+.pre-order-div {
+	width: 95%;
+	display: flex;
+	margin-bottom: 3.5rem;
+	justify-content: space-between;
+}
+
+.intro-btn {
+	color: #ffff;
+	margin-right: var(--base-margin);
+	background-color: var(--dark-orange);
+}
+
+.intro-btn:hover {
+	background-color: #ff9b62;
+}
+
+.pre-order-div > p {
+	font-weight: 600;
+}
+
+.keyboard-img {
+	border-radius: 1rem 0 0 1rem;
+	margin-left: var(--base-margin);
+	width: calc(100% - var(--base-margin));
+	content: url("./assets/mobile/image-keyboard.jpg");
+}
+
+.flex-images {
+	display: flex;
+	position: relative;
+	justify-content: space-between;
+	margin-top: var(--base-margin);
+	margin-right: var(--base-margin);
+}
+
+.overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	background-color: var(--dark-orange);
+}
+
+.phone-and-keyboard-img {
+	opacity: 0.75;
+	mix-blend-mode: multiply;
+	content: url("./assets/mobile/image-phone-and-keyboard.jpg");
+}
+
+.phone-and-keyboard-img,
+.overlay {
+	width: 33%;
+	border-radius: 0 1rem 1rem 0;
+}
+
+.glass-and-keyboard-img {
+	width: 60%;
+	border-radius: 1rem;
+	content: url("./assets/mobile/image-glass-and-keyboard.jpg");
+}
+
+.description {
+	text-align: center;
+	padding: .5rem;
+	margin: var(--base-margin);
+}
+
+.description-title {
+	font-size: 2rem;
+	text-transform: uppercase;
+}
+
+.description-text {
+	line-height: 1.6rem;
+}
+
+.benefits-div {
+	margin: var(--base-margin);
+}
+
+.benefits-div svg {
+	margin-top: calc(var(--base-margin) + 1rem);
+}
+
+.benefit {
+	text-align: center;
+}
+
+.benefit-title {
+	font-size: 1.6rem;
+	text-transform: uppercase;
+}
+
+.rights {
+	text-align: center;
+	margin: 5rem 0 4rem 0;
+}
+
+@media screen and (min-width: 768px) {
+	:root {
+		--base-margin: 2.5rem;
+	}
+	body {
+		display: grid;
+		row-gap: var(--base-margin);
+		grid-template-columns: 25% 25% 25% 25%;
+		grid-template-rows: 58px 425px 320px 108px 650px auto;
+		grid-template-areas: "nav nav nav nav" "intro intro keyboard-img keyboard-img" "images images images images"
+			"description description description description" "benefits benefits benefits benefits"
+			"rights rights rights rights";
+	}
+	.nav {
+		grid-area: nav;
+	}
+	.intro {
+		margin-right: 0;
+		grid-area: intro;
+	}
+	.keyboard-img {
+		grid-area: keyboard-img;
+		margin-top: var(--base-margin);
+		content: url("./assets/tablet/image-keyboard.jpg");
+	}
+	.flex-images {
+		margin-top: 0;
+		grid-area: images;
+		justify-content: space-around;
+	}
+	.overlay {
+		left: calc(var(--base-margin) + 3%);
+	}
+	.phone-and-keyboard-img {
+		margin-left: var(--base-margin);
+		content: url("./assets/tablet/image-phone-and-keyboard.jpg");
+	}
+
+	.phone-and-keyboard-img,
+	.overlay {
+		border-radius: 1rem;
+		width: calc(33% - var(--base-margin));
+	}
+
+	.glass-and-keyboard-img {
+		width: 55%;
+		content: url("./assets/tablet/image-glass-and-keyboard.jpg");
+	}
+	.description {
+		display: flex;
+		text-align: left;
+		align-items: center;
+		justify-content: space-between;
+		margin: 0 var(--base-margin);
+		grid-area: description;
+	}
+	.description-title {
+		margin: 0;
+		margin-right: var(--base-margin);
+	}
+	.description-text {
+		margin: 0;
+		margin-left: var(--base-margin);
+	}
+	.benefits-div {
+		grid-area: benefits;
+		display: grid;
+		column-gap: var(--base-margin);
+		row-gap: var(--base-margin);
+		grid-template-columns: 50% 50%;
+		grid-template-rows: 50% 50%;
+	}
+	.benefit {
+		padding: .5rem 3.4rem .5rem .5rem;
+		text-align: left;
+	}
+	.benefits-div svg {
+		margin-top: 0;
+	}
+	.rights {
+		grid-area: rights;
+	}
+}
+
+@media screen and (min-width: 1440px) {
+	:root {
+		--base-margin: 10.3rem;
+	}
+	body {
+		row-gap: 1.8rem;
+		grid-template-columns: 25% 25% 20% 30%;
+		grid-template-rows: calc(58px + 3.3rem) 480px 480px calc(323px + 8.7rem) auto;
+		grid-template-areas: "nav nav nav nav" "intro intro keyboard-img keyboard-img"
+			"images images images description" "benefits benefits benefits benefits" "rights rights rights rights";
+	}
+
+	.square {
+		display: block;
+		position: absolute;
+	}
+
+	#square-1 {
+		right: -120px;
+		top: calc(calc(58px + 3.3rem) + 1.8rem);
+	}
+	#square-2 {
+		left: -120px;
+		top: calc(calc(59px + 3.3rem) + 480px * 2 - 1.8rem * 6 - 10px);
+	}
+	.nav {
+		margin-top: 3.4rem;
+	}
+	.intro {
+		margin-top: 0;
+		margin-right: var(--base-margin);
+	}
+	.pre-order-div {
+		justify-content: flex-start;
+	}
+	.intro-btn {
+		margin-right: 3rem;
+	}
+	.keyboard-img {
+		margin-top: 0;
+		width: calc(100% - var(--base-margin));
+		margin-left: 0;
+		margin-right: var(--base-margin);
+		border-radius: 1rem;
+		content: url("./assets/desktop/image-keyboard.jpg");
+	}
+	.flex-images {
+		margin-right: 0;
+		justify-content: flex-start;
+	}
+	.overlay {
+		left: var(--base-margin);
+	}
+	.phone-and-keyboard-img {
+		margin-right: 2rem;
+		content: url("./assets/desktop/image-phone-and-keyboard.jpg");
+	}
+	.phone-and-keyboard-img,
+	.overlay {
+		width: calc(41.2% - var(--base-margin));
+	}
+	.glass-and-keyboard-img {
+		width: 45.2%;
+		content: url("./assets/desktop/image-glass-and-keyboard.jpg");
+	}
+	.description {
+		margin: 0;
+		grid-area: description;
+		flex-direction: column;
+		justify-content: center;
+		align-items: flex-start;
+		padding-right: var(--base-margin);
+	}
+	.description-title {
+		margin: 0;
+		margin-bottom: 2rem;
+	}
+	.description-text {
+		margin: 0;
+	}
+	.benefits-div {
+		margin: 0 var(--base-margin);
+		margin-top: 8.7rem;
+		display: flex;
+		column-gap: 1rem;
+	}
+	.benefit {
+		padding-right: .2rem;
+	}
+	.benefit > p {
+		line-height: 1.5;
+	}
+}
+
+@media screen and (min-width: 1470px) {
+	.keyboard-img {
+		max-height: 100%;
+		width: auto;
+		margin-right: 0;
+		margin-left: 5%;
+	}
 }
